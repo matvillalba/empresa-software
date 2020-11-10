@@ -17,13 +17,13 @@ public class Empleado {
 	protected Integer plus = 2000;
 	protected String area;
 
-	public Empleado(Integer dni, Integer idEmpleado, String nombre, Double sueldo, Integer anioDeIngreso) {
+	public Empleado(Integer dni, Integer idEmpleado, String nombre, Double sueldo, Integer anioDeIngreso, String area) {
 		this.dni = dni;
 		this.idEmpleado = idEmpleado;
 		this.nombre = nombre;
 		this.sueldo = sueldo;
 		this.anioDeIngreso = anioDeIngreso;
-		
+		this.area = area;
 		calcularDiasDeVacaciones();
 	}
 

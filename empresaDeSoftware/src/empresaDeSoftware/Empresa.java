@@ -13,14 +13,14 @@ public class Empresa {
 	public Empresa(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public void calcularDiasDeVacaciones(Empleado empleado) {
 		empleado.calcularSueldo();
 	}
 
 	public void contratarEmpleado(Empleado empleado) {
 		empleados.add(empleado);
-		
+
 	}
 
 	public Boolean darDeBajaAEmpleado(Integer dni) {
@@ -36,7 +36,6 @@ public class Empresa {
 	public HashSet<Empleado> getEmpleados() {
 		return empleados;
 	}
-
 
 	public HashMap<Empleado, Double> liquidarSueldos() {
 		for (Empleado empleado : empleados) {
