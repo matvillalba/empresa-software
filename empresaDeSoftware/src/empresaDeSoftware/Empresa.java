@@ -1,17 +1,21 @@
 package empresaDeSoftware;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class Empresa {
 	private String nombre;
 	private HashSet<Empleado> empleados = new HashSet<Empleado>();
-	private HashSet<Departamento> departamentos = new HashSet<Departamento>();
 	HashMap<Empleado, Double> sueldos = new HashMap<Empleado, Double>();
 
 	public Empresa(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	public void calcularDiasDeVacaciones(Empleado empleado) {
+		empleado.calcularSueldo();
 	}
 
 	public void contratarEmpleado(Empleado empleado) {
@@ -33,10 +37,6 @@ public class Empresa {
 		return empleados;
 	}
 
-	public HashSet<Departamento> getDepartamentos() {
-	
-		return departamentos;
-	}
 
 	public HashMap<Empleado, Double> liquidarSueldos() {
 		for (Empleado empleado : empleados) {

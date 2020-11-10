@@ -20,6 +20,7 @@ public class Gerente extends Empleado{
 	public void agregarEmpleadoACargo(Empleado empleado) {
 		empleadosACargo.add(empleado);
 	}
+	
 	@Override
 	public int getDiasDeVacaciones(){
 		Integer adicional=10;

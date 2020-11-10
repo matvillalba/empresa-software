@@ -11,22 +11,30 @@ public class Empleado {
 	private Double sueldo;
 	private Integer anioDeIngreso;
 	private Integer diasDeVacaciones;
-	private Integer ausencias=0;
-	private Integer llegadasTarde=0;
-	protected Integer toleranciaDeAusencias=2;
-	protected Integer plus=2000;
+	private Integer ausencias = 0;
+	private Integer llegadasTarde = 0;
+	protected Integer toleranciaDeAusencias = 2;
+	protected Integer plus = 2000;
+	protected String area;
 
-	
 	public Empleado(Integer dni, Integer idEmpleado, String nombre, Double sueldo, Integer anioDeIngreso) {
 		this.dni = dni;
 		this.idEmpleado = idEmpleado;
 		this.nombre = nombre;
 		this.sueldo = sueldo;
-		this.anioDeIngreso=anioDeIngreso;
+		this.anioDeIngreso = anioDeIngreso;
+		
 		calcularDiasDeVacaciones();
 	}
-	
-	
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
 	public Integer getDni() {
 		return dni;
 	}
@@ -38,59 +46,57 @@ public class Empleado {
 	public String getNombre() {
 		return nombre;
 	}
-	
-	
+
 	public Double getSueldo() {
 		return sueldo;
 	}
 
-	
-	public void reportarLlegadaTarde(){
+	public void reportarLlegadaTarde() {
 		llegadasTarde++;
 	}
-	
+
 	public void reportarAusencia() {
 		ausencias++;
 	}
-	
-	protected void calcularDiasDeVacaciones() {
+
+	public void calcularDiasDeVacaciones() {
 		Integer antiguedad;
 		Integer anioActual = Calendar.getInstance().get(Calendar.YEAR);
-		antiguedad = anioActual	- anioDeIngreso;
-		if(antiguedad<=5) {
+		antiguedad = anioActual - anioDeIngreso;
+		if (antiguedad <= 5) {
 			diasDeVacaciones = 14;
-		}else if(antiguedad <=10) {
+		} else if (antiguedad <= 10) {
 			diasDeVacaciones = 21;
-		}else if(antiguedad<=20) {
-			diasDeVacaciones=28;
-		}else {
-			diasDeVacaciones=35;
+		} else if (antiguedad <= 20) {
+			diasDeVacaciones = 28;
+		} else {
+			diasDeVacaciones = 35;
 		}
 	}
-	
-	public int getDiasDeVacaciones(){
+
+	public int getDiasDeVacaciones() {
 		return diasDeVacaciones;
 	}
-	
-	public String toString(){
-		return (dni.toString()+" "+idEmpleado.toString()+" "+nombre+" "+sueldo.toString()+" "+anioDeIngreso.toString());
+
+	public String toString() {
+		return (dni.toString() + " " + idEmpleado.toString() + " " + nombre + " " + sueldo.toString() + " "
+				+ anioDeIngreso.toString());
 	}
-	
+
 	public Double calcularSueldo() {
 		Double liquidacion = sueldo;
 		Integer cantidadDeAusencias = ausencias;
-		/* 4 llegadas tarde se consideran una ausencia*/
-		Integer ausenciasPorLlegadasTarde = llegadasTarde/4;
-		cantidadDeAusencias+=ausenciasPorLlegadasTarde;
-		double valorDiaDeTrabajo=sueldo/20;
-		if(cantidadDeAusencias==0) {
-			liquidacion+=plus;
-		}else if(cantidadDeAusencias>toleranciaDeAusencias) {
-			liquidacion-=valorDiaDeTrabajo*cantidadDeAusencias;
+		/* 4 llegadas tarde se consideran una ausencia */
+		Integer ausenciasPorLlegadasTarde = llegadasTarde / 4;
+		cantidadDeAusencias += ausenciasPorLlegadasTarde;
+		double valorDiaDeTrabajo = sueldo / 20;
+		if (cantidadDeAusencias == 0) {
+			liquidacion += plus;
+		} else if (cantidadDeAusencias > toleranciaDeAusencias) {
+			liquidacion -= valorDiaDeTrabajo * cantidadDeAusencias;
 		}
 		return liquidacion;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -100,7 +106,6 @@ public class Empleado {
 		result = prime * result + ((idEmpleado == null) ? 0 : idEmpleado.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -123,7 +128,5 @@ public class Empleado {
 			return false;
 		return true;
 	}
-	
-	
 
 }

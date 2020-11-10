@@ -18,6 +18,7 @@ public class Desarrollador extends Empleado{
 	public ArrayList<String> getProyectosAsignados() {
 		return proyectosAsignados;
 	}
+	
 	@Override
 	public int getDiasDeVacaciones(){
 		Integer adicional=5;
