@@ -11,7 +11,7 @@ public class testEmpresa {
 	
 	@Test
 	public void queSePuedaAgregarEmpleado() {
-		Empleado empleado1 = new Empleado(13456789,001,"John Connor",50000.0,2000);
+		Empleado empleado1 = new Empleado(13456789,001,"John Connor",50000.0,2000, "Gerencia");
 		
 		Empresa microsoft = new Empresa("Microsoft");
 		
@@ -21,8 +21,8 @@ public class testEmpresa {
 	}
 	@Test
 	public void queNoSePuedaAgregarUnEmpleado() {
-		Empleado empleado1 = new Empleado(13456789,001,"John Connor",50000.0,2000);
-		Empleado empleado2 = new Empleado(13456789,001,"Don Draper",100000.0,2000);
+		Empleado empleado1 = new Empleado(13456789,001,"John Connor",50000.0,2000, "Desarrollo");
+		Empleado empleado2 = new Empleado(13456789,001,"Don Draper",100000.0,2000, "Desarrollo");
 		
 		Empresa microsoft = new Empresa("Microsoft");
 		
@@ -36,10 +36,10 @@ public class testEmpresa {
 	
 	@Test
 	public void queSePuedaDarDeBajaEmpleados() {
-		Empleado empleado1 = new Empleado(10456789,001,"John Connor",50000.0,2000);
-		Empleado empleado2 = new Gerente(13456711,002,"Don Draper",100000.0,2000);
-		Empleado empleado3 = new Empleado(12456730,003,"Diana Prince",80000.0,2000);
-		Empleado empleado4 = new Empleado(13456789,004,"Peggy Olson",73000.0,2000);
+		Empleado empleado1 = new Empleado(10456789,001,"John Connor",50000.0,2000, "Desarrollo");
+		Empleado empleado2 = new Gerente(13456711,002,"Don Draper",100000.0,2000, "Gerencia");
+		Empleado empleado3 = new Empleado(12456730,003,"Diana Prince",80000.0,2000, "Contaduría");
+		Empleado empleado4 = new Empleado(13456789,004,"Peggy Olson",73000.0,2000, "Administración");
 		
 		Empresa microsoft = new Empresa("Microsoft");
 		
@@ -59,10 +59,10 @@ public class testEmpresa {
 	@Test
 	public void liquidarSueldos() {
 		
-		Empleado empleado1 = new Empleado(13456789,001,"John Connor",50000.0,2000);
-		Empleado empleado2 = new Empleado(13456789,001,"Don Draper",100000.0,2000);
-		Empleado empleado3 = new Empleado(13456789,001,"Diana Prince",80000.0,2000);
-		Empleado empleado4 = new Empleado(13456789,001,"Peggy Olson",73000.0,2000);
+		Empleado empleado1 = new Empleado(13456789,001,"John Connor",50000.0,2000, "Desarrollo");
+		Empleado empleado2 = new Empleado(13456789,001,"Don Draper",100000.0,2000, "Desarrollo");
+		Empleado empleado3 = new Empleado(13456789,001,"Diana Prince",80000.0,2000, "Administración");
+		Empleado empleado4 = new Empleado(13456789,001,"Peggy Olson",73000.0,2000, "Gerencia");
 		
 		/*4 llegadas tarde suman una ausencia */
 		
